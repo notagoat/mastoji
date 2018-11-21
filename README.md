@@ -15,5 +15,6 @@ Fetches Emojis from Mastodon Instances!
 
 ## Planned Features
   - Better instance selection
+  - Also finding instances
   - Better error logging
   - Moving emojis? Not sure, Would need some more tests
