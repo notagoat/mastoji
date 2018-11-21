@@ -1,7 +1,7 @@
 import requests
 import urllib.request
 import os.path
-
+import shutil
 def main():
     #Ways to speed up:
     # - Async for each instances
@@ -14,6 +14,7 @@ def main():
                  "mastodon.social","knzk.me","octodon.social",
                 "deadinsi.de"]
     instances.sort()
+    clone(instances)
     setup(instances)
     try:
         for name in instances:
@@ -22,6 +23,7 @@ def main():
     except Exception as e:
         print("Instance Error")
         print(e)
+
 
 def fetch(name):
     r = requests.get('https://%s/api/v1/custom_emojis'% name, allow_redirects=True)
@@ -53,5 +55,21 @@ def setup(instances):
             pass
         else: os.mkdir("emoji/%s/"%name)
  
+    if (os.path.isdir("emoji/all")):
+        pass
+    else:
+        os.mkdir("emoji/all")
+
+def clone(instances):
+    for name in instances:
+        print("Copying emoji for: %s"% name)
+        path = "emoji/%s/" % name
+        files = os.listdir(path)
+        for name in files:
+            try:
+                shutil.copyfile(path+name,"emoji/all/"+name)
+            except Exception as e:
+                print(e)
+                pass
 if __name__ == '__main__':
     main()
