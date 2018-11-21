@@ -2,20 +2,16 @@ import requests
 import urllib.request
 import os.path
 import shutil
+import csv
+
 def main():
-    #Ways to speed up:
-    # - Async for each instances
-    # - Faster Downloads for images
-    #uwu.st??? getting 404 
-    instances = ["mastodon.gamedev.place","mastodon.art","social.tchncs.de",
-                 "lgbtq.cool","witches.live","laserdisc.party",
-                 "fedi.lynnesbian.space","cybre.space","efdn.club",
-                 "lamp.institute","radical.town","jorts.horse",
-                 "mastodon.social","knzk.me","octodon.social",
-                "deadinsi.de"]
+    with open("instances.txt") as i:
+        instances = i.readlines()
+    instances = [x.strip() for x in instances]
+
     instances.sort()
-    clone(instances)
     setup(instances)
+    clone(instances)
     try:
         for name in instances:
             print("-----!"+name+"!-----")
@@ -71,5 +67,7 @@ def clone(instances):
             except Exception as e:
                 print(e)
                 pass
+ 
+
 if __name__ == '__main__':
     main()
