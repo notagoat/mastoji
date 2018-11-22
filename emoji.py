@@ -11,7 +11,7 @@ def main():
 
     instances.sort()
     setup(instances)
-    clone(instances)
+
     try:
         for name in instances:
             print("-----!"+name+"!-----")
@@ -19,6 +19,7 @@ def main():
     except Exception as e:
         print("Instance Error")
         print(e)
+    clone(instances)
 
 
 def fetch(name):
