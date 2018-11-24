@@ -14,7 +14,7 @@ mastodon.social
 knzk.me
 octodon.social
 deadinsi.de
-lubar.me
+ben.lubar.me
 sunbeam.city
 snouts.online
 anarchism.space
@@ -37,8 +37,6 @@ yiff.life
 kinky.business
 monsterpit.net
 botsin.space
-memetastic.space
-social.0day.agency
 mastodon.xyz
 mastodon.technology
 niu.moe

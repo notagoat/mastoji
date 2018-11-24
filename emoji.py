@@ -31,9 +31,10 @@ def fetch(name):
                 if os.path.isfile(path+emoji['shortcode']+".png"):
                     pass
                 else:
-                    print(emoji['shortcode'] + " found!")
-                    emojiimage = requests.get(emoji['static_url'],allow_redirects=True)
-                    open(path + emoji['shortcode']+".png",'wb').write(emojiimage.content)
+                    if "ms_" not in emoji['shortcode']: #Cut out Mutant Standard Emojis (Or at least most of them)
+                        print(emoji['shortcode'] + " found!")
+                        emojiimage = requests.get(emoji['static_url'],allow_redirects=True)
+                        open(path + emoji['shortcode']+".png",'wb').write(emojiimage.content)
             except Exception as e:
                 print("Did not get: " + emoji['url'])
                 print(e)
