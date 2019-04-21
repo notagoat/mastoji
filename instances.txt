@@ -41,3 +41,4 @@ mastodon.xyz
 mastodon.technology
 niu.moe
 toot.cafe
+mastodon.lubar.me
